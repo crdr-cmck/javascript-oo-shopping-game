@@ -9,9 +9,9 @@ let player = {
     score,
     items,
 
-    getCurrentScore: () => {  return this.score},
-    addPoints: (points) => {return this.score + points},
-    deductPoints: (points) => {return this.score - points}
+    getCurrentScore()  {  return this.score},
+    addPoints(points)  {this.score= this.score + points},
+    deductPoints (points) {this.score= this.score - points}
 }
 player.name = name;
 player.score = score;
@@ -19,10 +19,31 @@ player.items = items;
 
 // Define the Product class - write the Constructor function for Product class here
 
+function Product(id, name, price, expiryDate ){
+    this.id = id;
+    this.name = name;
+    this.price = price;
+    this.expiryDate = expiryDate;
+}
+
 // Complete the dateDiff function
-const dateDiff = (date1, date2) => {};
+const dateDiff = (date1, date2) => {
+    let oneDay = 1000 * 3600 * 24;
+    let timeDiff = Math.abs(date2.getTime() -date1.getTime());
+    
+    let dateDiff = Math.ceil(timeDiff/oneDay);
+
+    return dateDiff;
+};
 
 // Here, use Object.defineProperty to create property - daysToExpire
+Object.defineProperty(Product.prototype, 'daysToExpire', {
+    get:function (){
+        return dateDiff(this.expiryDate, new Date());
+    }
+});
+
+
 
 // Add method getDetails to Product here
 
