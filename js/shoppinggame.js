@@ -4,15 +4,18 @@ let gameComplete = false;
     const score=0;
     const items=0;
 // Define the player object here
-class Player{
+let player = {
+    name, 
+    score,
+    items,
 
-    constructor (name, score, items){
-        this.name = name;
-        this.score = score;
-        this.items = items;
-    }
+    getCurrentScore: () => {  return this.score},
+    addPoints: (points) => {return this.score + points},
+    deductPoints: (points) => {return this.score - points}
 }
-let player = Player(name,score, items);
+player.name = name;
+player.score = score;
+player.items = items;
 
 // Define the Product class - write the Constructor function for Product class here
 
