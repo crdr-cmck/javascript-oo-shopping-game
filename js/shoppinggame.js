@@ -359,14 +359,17 @@ function init(data) {
 
     // Complete this function
     const rateAndExit = () => {
+       let playerRating = new Rating();
         // Create a new instance of Rating and assign it to a variable named playerRating here
         rl.question("How would you rate this game on a scale of 1-10 (1 being the lowest)?:", function (r) {
             if (r == "" || isNaN(r) || r == 0 || r > 10) {
                 console.log("Invalid rating! Please nter a number from 1 - 10".red);
                 rateAndExit();
             } else {
+                playerRating.rating = r;
                 // Call rating setter method of playerRating to set user entered rate value here
-                
+                let target = new Object();
+                Object.assign(target, player, playerRating);
                 // Call Object.assign() method here to populate target
                 
                 console.log(`${target.name} you rated this game as ${target.rate}`.green);
