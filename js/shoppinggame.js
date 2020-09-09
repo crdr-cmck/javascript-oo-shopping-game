@@ -298,6 +298,7 @@ function init(data) {
 
         rl.question("What's your name? ", function (name) {
             // Assign the player object's name property to the user entered name here
+            player.name = name;
             console.log(`Welcome ${player.name} !!!`.blue);
             start(data);
         });
@@ -320,7 +321,10 @@ function init(data) {
     const shop = (prodList, tBill, lastProd) => {
         let totalBill = tBill;
         const prId = generateProductId();
-        let product = lastProd.value; // Assign the value of product here
+        let product = (lastProd !== 'undefined') ? lastProd :getProduct(prodList,prId );
+       
+
+        ; // Assign the value of product here
         let productDetails = null; // Assign the value of productDetails here
 
         rl.question(`You can buy - ${productDetails}.\n Do you want to buy this item <Y/N>? `.yellow, function (option) {
