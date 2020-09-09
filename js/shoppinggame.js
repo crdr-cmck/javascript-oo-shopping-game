@@ -230,7 +230,9 @@ const findProductById = (id) => {
 };
 
 // Complete this function
-const generateProductId = () => {};
+const generateProductId = () => {
+    return Math.round(20*Math.random());
+};
 
 
 const getProduct = (prodList, pId) => {
