@@ -332,7 +332,7 @@ function init(data) {
                 calculatePoints(product, totalBill);
                 console.log(`${player.name} you earned ${player.getCurrentScore()} points!`.bold);
                 if (player.score >= 500) {
-                     Object.defineProperty(player, "status", { status:"Shopping Master"});
+                    Object.defineProperty(player, "status", { value: "Shopping Master" });
                     exitWon();
                 } else {
                     let iCount = ++player.items;
