@@ -278,8 +278,8 @@ const calculatePoints = (prod, tBill) => {
     player.score = player.score+ pointsToBill + pointsForExpDate;
 
     if (prod instanceof MagicProduct){
-        if (prod.isBonus) { player.addPoints();}
-        else {player.deductPoints();}
+        if (prod.isBonus) { player.addPoints(prod.points);}
+        else {player.deductPoints(prod.points);}
     }
 
 };
